@@ -4,5 +4,5 @@ RUN mkdir /root/.ssh/
 COPY id_rsa /root/.ssh/
 COPY id_rsa.pub /root/.ssh/
 RUN chmod 600 /root/.ssh/id_rsa && chmod 600 /root/.ssh/id_rsa.pub
-
+EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
