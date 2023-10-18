@@ -7,6 +7,7 @@ RUN chmod 777 /home/prod
 COPY id_rsa /root/.ssh/
 COPY id_rsa.pub /root/.ssh/
 RUN chmod 600 /root/.ssh/id_rsa && chmod 600 /root/.ssh/id_rsa.pub
+RUN useradd -u 109 jenkins
 RUN apt-get update
 RUN apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
