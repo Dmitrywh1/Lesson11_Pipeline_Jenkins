@@ -1,5 +1,5 @@
 FROM maven:3.6.3-jdk-11-slim
-RUN apt update &&  apt install openssh-client -y
+RUN apt update &&  apt install openssh-client sudo -y
 RUN mkdir /root/.ssh/
 RUN mkdir /home/prod
 COPY /prod/Dockerfile /home/prod/
