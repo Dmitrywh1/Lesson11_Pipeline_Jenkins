@@ -8,9 +8,9 @@ COPY id_rsa /root/.ssh/
 COPY id_rsa.pub /root/.ssh/
 RUN useradd -u 109 jenkins
 RUN chmod 600 /root/.ssh/id_rsa && chmod 600 /root/.ssh/id_rsa.pub
-RUN apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common && \
-    curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
-    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" && \
-    apt-get install -y docker-ce docker-ce-cli containerd.io
+RUN apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+RUN apt-get install -y docker-ce docker-ce-cli containerd.io
 
 
