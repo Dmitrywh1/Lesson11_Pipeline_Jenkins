@@ -4,6 +4,8 @@ RUN mkdir /root/.ssh/
 RUN mkdir /home/prod
 COPY /prod/Dockerfile /home/prod/
 RUN chmod 777 /home/prod
+RUN mkdir /.docker
+RUN chmod 777 /.docker
 COPY id_rsa /root/.ssh/
 COPY id_rsa.pub /root/.ssh/
 RUN chmod 600 /root/.ssh/id_rsa && chmod 600 /root/.ssh/id_rsa.pub
