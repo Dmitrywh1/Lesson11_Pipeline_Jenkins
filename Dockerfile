@@ -5,10 +5,11 @@ RUN mkdir /root/.ssh/
 RUN mkdir /home/prod
 COPY /prod/Dockerfile /home/prod/
 RUN chmod 777 /home/prod
-COPY keyl11 /home/prod
-COPY keyl11.pub /home/prod
+COPY keyl11 /home/jenkins/.ssh/
+COPY keyl11.pub /home/jenkins/.ssh/
 COPY known_hosts /root/.ssh/
-RUN chmod 600 /home/prod/keyl11
+RUN chmod 600 /home/jenkins/.ssh/keyl11 && \
+    chmod 600 /home/jenkins/.ssh/keyl11.pub
 RUN mkdir  /home/jenkins && \
     mkdir /home/jenkins/.ssh
 RUN chmod 777  /home/jenkins/.ssh
