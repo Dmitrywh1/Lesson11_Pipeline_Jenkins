@@ -7,11 +7,10 @@ COPY /prod/Dockerfile /home/prod/
 RUN chmod 777 /home/prod
 COPY keyl11 /home/jenkins/.ssh/
 COPY keyl11.pub /home/jenkins/.ssh/
-COPY known_hosts /root/.ssh/
+RUN chown -R jenkins /home/jenkins/.ssh
 RUN chmod 600 /home/jenkins/.ssh/keyl11 && \
     chmod 600 /home/jenkins/.ssh/keyl11.pub
 RUN chmod 777  /home/jenkins/.ssh
-RUN chmod 600 /root/.ssh/known_hosts
 RUN groupadd -g 109 jenkins && \
     useradd -u 109 -g jenkins -m -s /bin/bash jenkins
 RUN apt-get update
