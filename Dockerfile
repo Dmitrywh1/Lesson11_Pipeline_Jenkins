@@ -1,10 +1,10 @@
 FROM maven:3.6.3-jdk-11-slim
 # Install packages
 RUN apt update &&  apt install openssh-client openssh-server sudo -y
-# Create catalog and cope Dockerfile for further build
+# Create catalog and copy Dockerfile for further build
 RUN mkdir /home/prod
 COPY /prod/Dockerfile /home/prod/
-# Confugure ssh client and give permissions for jenkins user
+# Configure ssh client and give permissions for jenkins user
 COPY keyl11 /home/jenkins/.ssh/
 COPY keyl11.pub /home/jenkins/.ssh/
 RUN chmod 600 /home/jenkins/.ssh/keyl11 && \
