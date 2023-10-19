@@ -1,7 +1,5 @@
 FROM maven:3.6.3-jdk-11-slim
-USER root
 RUN apt update &&  apt install openssh-client openssh-server sudo -y
-RUN mkdir /root/.ssh/
 RUN mkdir /home/prod
 COPY /prod/Dockerfile /home/prod/
 RUN chmod 777 /home/prod
@@ -9,7 +7,6 @@ COPY keyl11 /home/jenkins/.ssh/
 COPY keyl11.pub /home/jenkins/.ssh/
 RUN chmod 600 /home/jenkins/.ssh/keyl11 && \
     chmod 600 /home/jenkins/.ssh/keyl11.pub
-RUN chmod 777  /home/jenkins/.ssh
 RUN groupadd -g 109 jenkins && \
     useradd -u 109 -g jenkins -m -s /bin/bash jenkins
 RUN chown -R jenkins:jenkins /home/jenkins
