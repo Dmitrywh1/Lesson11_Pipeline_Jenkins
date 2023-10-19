@@ -7,7 +7,6 @@ RUN chmod 777 /home/prod
 COPY keyl11 /home/prod
 COPY keyl11.pub /home/prod
 RUN chmod 600 /home/prod/keyl11
-RUN mkdir  /root/.ssh/
 RUN chmod 777 /root/.ssh/
 RUN apt-get update
 RUN apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
