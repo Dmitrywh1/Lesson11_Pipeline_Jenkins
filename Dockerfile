@@ -10,6 +10,8 @@ COPY keyl11.pub /home/prod
 COPY known_hosts /root/.ssh/
 RUN chmod 600 /home/prod/keyl11
 RUN chmod 600 /root/.ssh/known_hosts
+RUN groupadd -g 109 jenkins && \
+    useradd -u 109 -g jenkins -m -s /bin/bash jenkins
 RUN apt-get update
 RUN apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
