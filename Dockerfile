@@ -1,5 +1,5 @@
 FROM maven:3.6.3-jdk-11-slim
-# Install pacakges
+# Install packages
 RUN apt update &&  apt install openssh-client openssh-server sudo -y
 # Create catalog and cope Dockerfile for further build
 RUN mkdir /home/prod
