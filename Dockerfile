@@ -10,7 +10,6 @@ COPY keyl11.pub /home/jenkins/.ssh/
 COPY known_hosts /root/.ssh/
 RUN chmod 600 /home/jenkins/.ssh/keyl11 && \
     chmod 600 /home/jenkins/.ssh/keyl11.pub
-RUN mkdir /home/jenkins/.ssh
 RUN chmod 777  /home/jenkins/.ssh
 RUN chmod 600 /root/.ssh/known_hosts
 RUN groupadd -g 109 jenkins && \
